@@ -23,7 +23,6 @@ class loadCSVFromList:
         Convert a python List to CSV
         @param data List: The list of data
         @param filePath String: The desired file name(.csv)
-        @return CSV file
         """
 
         fieldNames = set()
