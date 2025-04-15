@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>9afcf5ea-4bad-45cf-88fb-c8d3c8cf73af</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>package1\main.py</StartupFile>
+    <StartupFile>mainPackage\main.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -22,10 +22,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="loadCSVPackage\loadCSV.py" />
-    <Compile Include="package1\__init__.py">
+    <Compile Include="mainPackage\__init__.py">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="package1\main.py" />
+    <Compile Include="mainPackage\main.py" />
     <Compile Include="loadCSVPackage\__init__.py">
       <SubType>Code</SubType>
     </Compile>
@@ -44,7 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Data\" />
-    <Folder Include="package1\" />
+    <Folder Include="mainPackage\" />
     <Folder Include="loadCSVPackage\" />
     <Folder Include="extractCSVPackage\" />
     <Folder Include="transformationPackage\" />
