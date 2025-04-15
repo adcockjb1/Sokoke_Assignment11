@@ -26,12 +26,6 @@ class loadCSVFromList:
         @return CSV file
         """
 
-        print(type(data))
-        print(type(data[0]))
-        print(len(data))
-        print(data[:2])  # print a sample of the first couple entries
-
-
         fieldNames = set()
         for row in data:
             fieldNames.update(row.keys())

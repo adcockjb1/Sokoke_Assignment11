@@ -45,9 +45,6 @@ if __name__ == "__main__":
 
     rawData = transformer.fixZips(rawData)
 
-        # Unit testing
-    print(rawData[0:9])
-
 
     # Load to CSV
     dictionaryConv = loadCSVFromList()
