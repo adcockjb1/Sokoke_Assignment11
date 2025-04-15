@@ -21,8 +21,8 @@ class loadCSVFromList:
     def convertToCSV(self, data, filePath):
         """
         Convert a python List to CSV
-        @param data String: The desired file name(.csv)
-        @param filePath dict: The dictionary of data
+        @param data List: The list of data
+        @param filePath String: The desired file name(.csv)
         @return CSV file
         """
 
