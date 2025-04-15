@@ -17,6 +17,8 @@
 #       - Fuel Quantity is all rounded differently
 #       - The last few hundred records are out of order
 #       - Inconsistent naming for Fuel Type
+#       - Two distinct types of Site IDs
+#       - Broken transaction number
 
 from extractCSVPackage.extractCSV import*
 from transformationPackage.transformData import*
@@ -40,10 +42,10 @@ if __name__ == "__main__":
 
     rawData = transformer.removeDuplicates(rawData)
 
+    rawData = transformer.fixZips(rawData)
+
     anomolyRecords = transformer.documentAnomolies(rawData)
     rawData = transformer.removeAnomolies(rawData)
-
-    rawData = transformer.fixZips(rawData)
 
 
     # Load to CSV
