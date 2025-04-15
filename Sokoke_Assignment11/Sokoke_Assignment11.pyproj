@@ -48,9 +48,14 @@
     <Folder Include="loadCSVPackage\" />
     <Folder Include="extractCSVPackage\" />
     <Folder Include="transformationPackage\" />
+    <Folder Include="transformationPackage\__pycache__\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Data\fuelPurchaseData.csv" />
+    <Content Include="transformationPackage\__pycache__\transformCSV.cpython-312.pyc" />
+    <Content Include="transformationPackage\__pycache__\transformData.cpython-312.pyc" />
+    <Content Include="transformationPackage\__pycache__\transformList.cpython-312.pyc" />
+    <Content Include="transformationPackage\__pycache__\__init__.cpython-312.pyc" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
