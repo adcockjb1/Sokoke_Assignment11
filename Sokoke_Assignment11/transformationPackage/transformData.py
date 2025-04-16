@@ -15,29 +15,98 @@
 
 # Anything else that's relevant: N/A
 
-#import 
+import re
+import json
+import requests
+import random
 
 class transformList:
-    # Round Gross Price to exactly 2 decimal places
+
     def roundToTwo(self, data):
+        """
+        Rounds Gross Price to exactly 2 decimal places
+        @param data List: The main list of data
+        @param data List: The list with a rounded 'Gross Price' field
+        """
 
+        for row in data:
+            price = float(row['Gross Price'])
+            row['Gross Price'] = round(price, 2)
+        
         return data
 
-    # Remove duplicate rows
+
     def removeDuplicates(self, data):
+        """
+        Removes duplicate rows
+        @param data List: The main list of data
+        @param deDupedData List: The de-duped data
+        """
 
-        return data
-
-    # Audit records where customer did not purchase gas
-    def removeAnomolies(self, data):
-
-        return data
+        seen = set()
+        deDupedData = []
     
-    def documentAnomolies(self, data):
+        for row in data:
+            rowTuple = tuple(sorted(row.items()))
+            if rowTuple not in seen:
+                seen.add(rowTuple)
+                deDupedData.append(row)
 
+        return deDupedData
+
+
+    def removeAnomolies(self, data):
+        """
+        Audits records where customer did not purchase gas
+        @param data List: The main list of data
+        @param data List: The list of records with correct fuel types
+        """
+
+        data = [row for row in data if row.get('Fuel Type') != 'Pepsi']
         return data
 
-    # Add Zip code to address when missing
+    def documentAnomolies(self, data):
+        """
+        Removes records where customer did not purchase gas
+        @param data List: The main list of data
+        @param anomolies List: The list of records with anomoly data
+        """
+
+        anomolies = [row for row in data if row.get('Fuel Type') == 'Pepsi']
+        return anomolies
+
+
+    # Couldn't get to work
+    def findZips(self, city, state, country, limit):
+        """
+        Adds zip code to address when missing
+        @param data List: The main list of data
+        @param data List: The list with a correct zip code in address
+        """
+
+        headers = {"apikey": "b38f7030-197c-11f0-8932-c5de6ec78589"}
+
+        params = (
+           ("city",city),
+           ("state_name",state),
+           ("country",country),
+           ("limit",limit)
+        )
+
+        response = requests.get('https://app.zipcodebase.com/api/v1/code/city', headers=headers, params=params)
+        string = response.content
+        zipDictionary = json.loads(string)
+
+        return zipDictionary["Results"]
+
+    # Does nothing
     def fixZips(self, data):
+        """
+        Adds zip code to address when missing
+        @param data List: The main list of data
+        @param data List: The list with a correct zip code in address
+        """
+
+
 
         return data
